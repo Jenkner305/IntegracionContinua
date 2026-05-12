@@ -1,11 +1,10 @@
-name: preubas ci
+name: pruebas ci
 
 on:
   push:
-    branches: [ " main " ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ " main " ]
-
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -16,4 +15,3 @@ jobs:
         run: echo "hola mundo"
       - name: fecha
         run: date
-
