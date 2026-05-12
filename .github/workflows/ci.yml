@@ -1,17 +1,21 @@
-name: pruebas ci
+name: Ci con Issues y PRs
 
 on:
-  push:
+  issues:
+     types: [opened, edited, closed, reopened, deleted]  
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
-  build:
+  #job 1: verificar el código
+  verificar-codigo:
     runs-on: ubuntu-latest
 
     steps:
-      - name: mostrar mensaje
-        run: echo "hola mundo"
-      - name: fecha
-        run: date
+      - name: Ckeckout del repositorio
+        uses: actions/checkout@v3
+        
+
+      - name: mostrar archivos
+        run: ls -R
