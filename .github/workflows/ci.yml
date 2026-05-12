@@ -1,21 +1,53 @@
-name: Ci con Issues y PRs
+name: CI y Despliegue
 
 on:
-  issues:
-     types: [opened, edited, closed, reopened, deleted]  
+  push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
 jobs:
-  #job 1: verificar el código
-  verificar-codigo:
+  verificar_codigo:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Ckeckout del repositorio
-        uses: actions/checkout@v3
-        
+      - name: Checkout del Repositorio
+        uses: actions/checkout@v4
 
-      - name: mostrar archivos
-        run: ls -R
+      - name: Mostrar mensaje de inicio
+        run: echo "Iniciando verificación del código"
+
+      - name: Mostrar fecha
+        run: date
+
+      - name: Listar archivos del proyecto
+        run: ls -la
+
+  desplegar_pagina:
+    needs: verificar_codigo
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout del Repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir Artifactos de Despliegue
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './'
+
+      - name: Iniciar Despliegue a Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
