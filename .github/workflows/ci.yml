@@ -1,0 +1,19 @@
+name: preubas ci
+
+on:
+  push:
+    branches: [ " main " ]
+  pull_request:
+    branches: [ " main " ]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-lates
+
+    steps:
+      - name: mostrar mensaje
+        run: echo "hola mundo"
+      - name: fecha
+        run: date
+
