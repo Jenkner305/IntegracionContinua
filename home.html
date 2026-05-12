@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Proyecto</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Integración Continua</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hola Mundo</h1>
-    <p>Mi primera página con CI/CD</p>
+
+  <header>
+    <h1>🔁 Integración Continua</h1>
+    <span class="badge">✓ Desplegado con GitHub Actions</span>
+  </header>
+
+  <div class="hero">
+    <h2>Práctica CI/CD</h2>
+    <p>Esta página fue desplegada automáticamente usando un pipeline de integración continua con GitHub Actions y GitHub Pages.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <p class="num">Paso 1</p>
+      <h3>git push</h3>
+      <p>Se sube el código al repositorio en la rama main.</p>
+    </div>
+    <div class="step">
+      <p class="num">Paso 2</p>
+      <h3>Verificar código</h3>
+      <p>GitHub Actions ejecuta el job de verificación automáticamente.</p>
+    </div>
+    <div class="step">
+      <p class="num">Paso 3</p>
+      <h3>Desplegar página</h3>
+      <p>Si la verificación pasa, se despliega la página en GitHub Pages.</p>
+    </div>
+    <div class="step">
+      <p class="num">Paso 4</p>
+      <h3>Página en vivo</h3>
+      <p>El sitio queda disponible públicamente de forma automática.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Módulo 1 — Desarrollo de Software · Integración Continua</p>
+  </footer>
+
 </body>
 </html>
